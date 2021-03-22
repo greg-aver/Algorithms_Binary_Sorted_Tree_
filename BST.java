@@ -1,63 +1,47 @@
 import java.io.*;
 import java.util.*;
 
-class BSTNode<T> {
-    public int NodeKey; // ключ узла
-    public T NodeValue; // значение в узле
-    public BSTNode<T> Parent; // родитель или null для корня
-    public BSTNode<T> LeftChild; // левый потомок
-    public BSTNode<T> RightChild; // правый потомок
+class BSTFind<T> {
+    // null если в дереве вообще нету узлов
+    public BSTNode<T> Node;
 
-    public BSTNode(int key, T val, BSTNode<T> parent)
-    {
-        NodeKey = key;
-        NodeValue = val;
-        Parent = parent;
-        LeftChild = null;
-        RightChild = null;
+    // true если узел найден
+    public boolean NodeHasKey;
+
+    // true, если родительскому узлу надо добавить новый левым
+    public boolean ToLeft;
+
+    public BSTFind() {
+        Node = null;
+        NodeHasKey = false;
+        ToLeft = false;
     }
 
-    public BSTNode(int nodeKey, T nodeValue) {
-        NodeKey = nodeKey;
-        NodeValue = nodeValue;
-        Parent = null;
-        LeftChild = null;
-        RightChild = null;
+    public BSTFind(BSTNode<T> node, boolean nodeHasKey, boolean toLeft) {
+        Node = node;
+        NodeHasKey = nodeHasKey;
+        ToLeft = toLeft;
     }
 
-    public BSTNode<T> getParent() {
-        return Parent;
+    public BSTFind(BSTNode<T> node, boolean nodeHasKey) {
+        Node = node;
+        NodeHasKey = nodeHasKey;
+        ToLeft = false;
     }
 
-    public BSTNode<T> getLeftChild() {
-        return LeftChild;
+    public BSTNode<T> getNode() {
+        return Node;
     }
 
-    public BSTNode<T> getRightChild() {
-        return RightChild;
+    public boolean isNodeHasKey() {
+        return NodeHasKey;
     }
 
-    public int getKey() {
-        return NodeKey;
+    public boolean isToLeft() {
+        return ToLeft;
     }
-
-    public T getValue() {
-        return NodeValue;
-    }
-
-    public void setLeftChild(BSTNode<T> leftChild) {
-        LeftChild = leftChild;
-    }
-
-    public void setRightChild(BSTNode<T> rightChild) {
-        RightChild = rightChild;
-    }
-
-    public void setParent(BSTNode<T> parent) {
-        Parent = parent;
-    }
-
 }
+
 
 class BSTNode<T> {
     public int NodeKey; // ключ узла
@@ -268,7 +252,6 @@ class BST<T> {
         }
     }
 
-    //TODO
     private void delete1Child(BSTNode<T> nodeDelete, boolean toLeft) {
         if (nodeDelete == getRoot()) {
             if (toLeft) {
