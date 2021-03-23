@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.function.BinaryOperator;
 
 class BSTFind<T> {
     // null если в дереве вообще нету узлов
