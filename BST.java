@@ -417,7 +417,7 @@ class BST<T> {
         return listAllNodes;
     }
 
-    public ArrayList<BSTNode<T>> WileAllNodes() {
+    public ArrayList<BSTNode<T>> WideAllNodes() {
         ArrayList<BSTNode<T>> listAllNodes = new ArrayList<>();
         LinkedList<BSTNode<T>> queue = new LinkedList<>();
         BSTNode<T> node = getRoot();
