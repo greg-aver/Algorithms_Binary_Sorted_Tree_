@@ -420,7 +420,7 @@ class BST<T> {
     public ArrayList<BSTNode> WideAllNodes() {
         ArrayList<BSTNode> listAllNodes = new ArrayList<>();
         LinkedList<BSTNode> queue = new LinkedList<>();
-        BSTNode<T> node = getRoot();
+        BSTNode node = getRoot();
         do {
             listAllNodes.add(node);
             if (node.getLeftChild() != null) {
