@@ -374,8 +374,8 @@ class BST<T> {
         return Root;
     }
 
-        public ArrayList<BSTNode<T>> DeepAllNodes(int type_order) {
-        ArrayList<BSTNode<T>> listAllNodes = new ArrayList<>();
+        public ArrayList<BSTNode> DeepAllNodes(int type_order) {
+        ArrayList<BSTNode> listAllNodes = new ArrayList<>();
         return switch (type_order) {
             case 0 -> inOrderRecursiveDeepAllNode(listAllNodes, getRoot());
             case 1 -> postOrderRecursiveDeepAllNode(listAllNodes, getRoot());
@@ -384,7 +384,7 @@ class BST<T> {
         };
     }
 
-    private ArrayList<BSTNode<T>> inOrderRecursiveDeepAllNode(ArrayList<BSTNode<T>> listAllNodes, BSTNode<T> rootNode) {
+    private ArrayList<BSTNode> inOrderRecursiveDeepAllNode(ArrayList<BSTNode> listAllNodes, BSTNode rootNode) {
         if (rootNode.getLeftChild() != null) {
             inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
         }
@@ -395,7 +395,7 @@ class BST<T> {
         return listAllNodes;
     }
 
-    private ArrayList<BSTNode<T>> postOrderRecursiveDeepAllNode(ArrayList<BSTNode<T>> listAllNodes, BSTNode<T> rootNode) {
+    private ArrayList<BSTNode> postOrderRecursiveDeepAllNode(ArrayList<BSTNode> listAllNodes, BSTNode rootNode) {
         if (rootNode.getLeftChild() != null) {
             inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
         }
@@ -406,7 +406,7 @@ class BST<T> {
         return listAllNodes;
     }
 
-    private ArrayList<BSTNode<T>> preOrderRecursiveDeepAllNode(ArrayList<BSTNode<T>> listAllNodes, BSTNode<T> rootNode) {
+    private ArrayList<BSTNode> preOrderRecursiveDeepAllNode(ArrayList<BSTNode> listAllNodes, BSTNode rootNode) {
         listAllNodes.add(rootNode);
         if (rootNode.getLeftChild() != null) {
             inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
@@ -417,9 +417,9 @@ class BST<T> {
         return listAllNodes;
     }
 
-    public ArrayList<BSTNode<T>> WideAllNodes() {
-        ArrayList<BSTNode<T>> listAllNodes = new ArrayList<>();
-        LinkedList<BSTNode<T>> queue = new LinkedList<>();
+    public ArrayList<BSTNode> WideAllNodes() {
+        ArrayList<BSTNode> listAllNodes = new ArrayList<>();
+        LinkedList<BSTNode> queue = new LinkedList<>();
         BSTNode<T> node = getRoot();
         do {
             listAllNodes.add(node);
