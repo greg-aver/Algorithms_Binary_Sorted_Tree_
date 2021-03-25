@@ -397,10 +397,10 @@ class BST<T> {
 
     private ArrayList<BSTNode> postOrderRecursiveDeepAllNode(ArrayList<BSTNode> listAllNodes, BSTNode rootNode) {
         if (rootNode.getLeftChild() != null) {
-            inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
+            postOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
         }
         if (rootNode.getRightChild() != null) {
-            inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getRightChild());
+            postOrderRecursiveDeepAllNode(listAllNodes, rootNode.getRightChild());
         }
         listAllNodes.add(rootNode);
         return listAllNodes;
@@ -409,10 +409,10 @@ class BST<T> {
     private ArrayList<BSTNode> preOrderRecursiveDeepAllNode(ArrayList<BSTNode> listAllNodes, BSTNode rootNode) {
         listAllNodes.add(rootNode);
         if (rootNode.getLeftChild() != null) {
-            inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
+            preOrderRecursiveDeepAllNode(listAllNodes, rootNode.getLeftChild());
         }
         if (rootNode.getRightChild() != null) {
-            inOrderRecursiveDeepAllNode(listAllNodes, rootNode.getRightChild());
+            preOrderRecursiveDeepAllNode(listAllNodes, rootNode.getRightChild());
         }
         return listAllNodes;
     }
